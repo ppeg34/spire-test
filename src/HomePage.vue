@@ -38,10 +38,12 @@ export default {
   },
   methods: {
     navProduct (productId) { 
-      window.location = "/product?product_id=" + productId;
+      const urlPath = process.env.BASE_URL + "product?product_id=" + productId;
+      window.location = urlPath.replace(/^\/+/g, '');
     },
     navCategory (categoryId) {
-      window.location = "/products?category_id=" + categoryId;
+      const urlPath = process.env.BASE_URL + "products?category_id=" + categoryId;
+      window.location = urlPath.replace(/^\/+/g, '');
     },
 		fetchCategories () {
 			fetch(baseUrl + '/categories')

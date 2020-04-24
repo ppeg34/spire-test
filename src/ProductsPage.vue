@@ -34,8 +34,9 @@ export default {
   },
   methods: {
     navProduct (productId) { 
-      window.location = "/product?product_id=" + productId;
-    },
+      const urlPath = process.env.BASE_URL + "product?product_id=" + productId;
+      window.location = urlPath.replace(/^\/+/g, '');
+          },
 		fetchProducts () {
       const urlParams = new URLSearchParams(window.location.search);
       const categoryId = urlParams.get("category_id");

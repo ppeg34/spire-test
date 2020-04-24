@@ -42,7 +42,8 @@ export default {
   },
   methods: {
     navProduct (productId) { 
-      window.location = "/product?product_id=" + productId;
+      const urlPath = process.env.BASE_URL + "product?product_id=" + productId;
+      window.location = urlPath.replace(/^\/+/g, '');
     },
     addToCart () {
       console.log("Added item id: " + this.productInfo.id + " to cart!");

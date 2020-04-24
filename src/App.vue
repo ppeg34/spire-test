@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     navHome() {
-      window.location = "/";
+      window.location.pathname = process.env.BASE_URL;
     } 
 
   }
